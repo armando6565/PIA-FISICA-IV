@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simulador de Relatividad Especial - Calcula v2</title>
+    <style>
+        body {
+            background-image: url('simuladorn.png');
+            background-size: cover;
+            color: white;
+            text-shadow: 2px 2px 4px #000000;
+        }
+        .container {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            width: fit-content;
+            margin: auto;
+        }
+        label, input, button {
+            display: block;
+            margin: 10px 0;
+        }
+    </style>
+    <script>
+        function calcularV2() {
+            var v1 = parseFloat(document.getElementById("v1").value);
+            var u = parseFloat(document.getElementById("u").value);
+            var c = 299792458; // velocidad de la luz en m/s
+
+            var v2 = (u - v1) / (1 - (v1 * u) / (c * c));
+            document.getElementById("resultado").innerHTML = "Velocidad 2: " + v2 + " m/s";
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Simulador de Relatividad Especial - Calcula v2</h1>
+        <label for="v1">Velocidad 1 (v<sub>1</sub>) (m/s):</label>
+        <input type="text" id="v1" name="v1">
+        <label for="u">Velocidad relativa (u) (m/s):</label>
+        <input type="text" id="u" name="u">
+        <button onclick="calcularV2()">Calcular</button>
+        <p id="resultado"></p>
+    </div>
+</body>
+</html>
